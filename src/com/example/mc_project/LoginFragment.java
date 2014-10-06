@@ -30,7 +30,7 @@ public class LoginFragment extends Fragment {
 	TextView tv;
 	Button b;
 	String[] x;
-	
+	String useremail="";
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
 	        ViewGroup container, 
@@ -141,11 +141,10 @@ public class LoginFragment extends Fragment {
 				return;
 			FBOnce=true;
 			
-			//Intent i=new Intent("android.intent.action.FINAL");
-			//i.putExtra("arr", x);
-			//startActivity(i);
-		
-			//getActivity().finish();
+			Intent i=new Intent("android.action.STORY");
+			i.putExtra("email",useremail);
+			startActivity(i);
+			getActivity().finish();
 			super.onPostExecute(result);
 		}
 	}
@@ -163,6 +162,7 @@ public class LoginFragment extends Fragment {
 	    String email="";
 	    try{
 	    	email=user.getProperty("email").toString();
+	    	useremail=email;
 	    	Toast.makeText(getActivity(),email,Toast.LENGTH_SHORT).show();
 	    }
 	    catch(Exception e)
