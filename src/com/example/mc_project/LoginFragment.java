@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,6 +40,7 @@ public class LoginFragment extends Fragment {
 	    LoginButton authButton = (LoginButton) view.findViewById(R.id.authButton);
 	    authButton.setFragment(this);
 	    authButton.setReadPermissions(Arrays.asList("email"));
+//	    authButton.setReadPermissions(Arrays.asList("email","name"));
 	    return view;
 	}
 	
@@ -162,8 +164,10 @@ public class LoginFragment extends Fragment {
 	    String email="";
 	    try{
 	    	email=user.getProperty("email").toString();
+	    	String name=user.getName();
+//	    	Log.d("name",name);
 	    	useremail=email;
-	    	Toast.makeText(getActivity(),email,Toast.LENGTH_SHORT).show();
+	    	Toast.makeText(getActivity(),name+"\n"+email,Toast.LENGTH_SHORT).show();
 	    }
 	    catch(Exception e)
 	    {}
