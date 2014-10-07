@@ -32,6 +32,7 @@ public class LoginFragment extends Fragment {
 	Button b;
 	String[] x;
 	String useremail="";
+	String username="";
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
 	        ViewGroup container, 
@@ -145,6 +146,7 @@ public class LoginFragment extends Fragment {
 			
 			Intent i=new Intent("android.action.STORY");
 			i.putExtra("email",useremail);
+			i.putExtra("name",username);
 			startActivity(i);
 			getActivity().finish();
 			super.onPostExecute(result);
@@ -164,10 +166,10 @@ public class LoginFragment extends Fragment {
 	    String email="";
 	    try{
 	    	email=user.getProperty("email").toString();
-	    	String name=user.getName();
+	    	username=user.getName();
 //	    	Log.d("name",name);
 	    	useremail=email;
-	    	Toast.makeText(getActivity(),name+"\n"+email,Toast.LENGTH_SHORT).show();
+	    	Toast.makeText(getActivity(),username+"\n"+email,Toast.LENGTH_SHORT).show();
 	    }
 	    catch(Exception e)
 	    {}
