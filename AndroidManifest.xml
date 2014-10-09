@@ -49,6 +49,16 @@
             </intent-filter>
         </activity>
         
+        <activity
+            android:name=".Homepage"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.action.HOMEPAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
         <activity android:name="com.facebook.LoginActivity" android:label="appname"></activity> <!-- appname -->
     </application>

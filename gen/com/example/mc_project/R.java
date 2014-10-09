@@ -1663,6 +1663,7 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f02009d;
     }
     public static final class id {
+        public static final int View1=0x7f08006d;
         public static final int action_bar=0x7f080030;
         public static final int action_bar_activity_content=0x7f080029;
         public static final int action_bar_container=0x7f08002f;
@@ -1674,13 +1675,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f08002a;
         public static final int action_menu_presenter=0x7f08002b;
         public static final int action_mode_close_button=0x7f080038;
-        public static final int action_settings=0x7f08006e;
+        public static final int action_settings=0x7f080070;
         public static final int activity_chooser_view_content=0x7f080039;
         public static final int always=0x7f080020;
         public static final int authButton=0x7f080050;
         public static final int beginning=0x7f080025;
         public static final int book_now=0x7f080010;
-        public static final int button1=0x7f08006d;
+        public static final int button1=0x7f08006f;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
@@ -1716,7 +1717,7 @@ containing a value of this type.
         public static final int dialog=0x7f080023;
         public static final int disableHome=0x7f08001d;
         public static final int dropdown=0x7f080024;
-        public static final int editText1=0x7f08006c;
+        public static final int editText1=0x7f08006e;
         public static final int edit_query=0x7f080044;
         public static final int end=0x7f080027;
         public static final int expand_activities_button=0x7f08003a;
@@ -1737,6 +1738,7 @@ containing a value of this type.
         public static final int middle=0x7f080026;
         public static final int monochrome=0x7f080013;
         public static final int never=0x7f08001e;
+        public static final int newstorybutton=0x7f08006c;
         public static final int none=0x7f080000;
         public static final int normal=0x7f080001;
         public static final int picker_subtitle=0x7f080061;
@@ -1842,8 +1844,9 @@ containing a value of this type.
         public static final int com_facebook_search_bar_layout=0x7f030025;
         public static final int com_facebook_tooltip_bubble=0x7f030026;
         public static final int com_facebook_usersettingsfragment=0x7f030027;
-        public static final int layout_story=0x7f030028;
-        public static final int support_simple_spinner_dropdown_item=0x7f030029;
+        public static final int layout_homepage=0x7f030028;
+        public static final int layout_story=0x7f030029;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002a;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

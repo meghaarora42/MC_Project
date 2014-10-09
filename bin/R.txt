@@ -405,6 +405,7 @@ int drawable ic_plusone_standard_off_client 0x7f02009a
 int drawable ic_plusone_tall_off_client 0x7f02009b
 int drawable powered_by_google_dark 0x7f02009c
 int drawable powered_by_google_light 0x7f02009d
+int id View1 0x7f08006d
 int id action_bar 0x7f080030
 int id action_bar_activity_content 0x7f080029
 int id action_bar_container 0x7f08002f
@@ -416,13 +417,13 @@ int id action_context_bar 0x7f080031
 int id action_menu_divider 0x7f08002a
 int id action_menu_presenter 0x7f08002b
 int id action_mode_close_button 0x7f080038
-int id action_settings 0x7f08006e
+int id action_settings 0x7f080070
 int id activity_chooser_view_content 0x7f080039
 int id always 0x7f080020
 int id authButton 0x7f080050
 int id beginning 0x7f080025
 int id book_now 0x7f080010
-int id button1 0x7f08006d
+int id button1 0x7f08006f
 int id buyButton 0x7f08000a
 int id buy_now 0x7f08000f
 int id buy_with_google 0x7f08000e
@@ -458,7 +459,7 @@ int id default_activity_button 0x7f08003c
 int id dialog 0x7f080023
 int id disableHome 0x7f08001d
 int id dropdown 0x7f080024
-int id editText1 0x7f08006c
+int id editText1 0x7f08006e
 int id edit_query 0x7f080044
 int id end 0x7f080027
 int id expand_activities_button 0x7f08003a
@@ -479,6 +480,7 @@ int id match_parent 0x7f08000c
 int id middle 0x7f080026
 int id monochrome 0x7f080013
 int id never 0x7f08001e
+int id newstorybutton 0x7f08006c
 int id none 0x7f080000
 int id normal 0x7f080001
 int id picker_subtitle 0x7f080061
@@ -558,8 +560,9 @@ int layout com_facebook_placepickerfragment_list_row 0x7f030024
 int layout com_facebook_search_bar_layout 0x7f030025
 int layout com_facebook_tooltip_bubble 0x7f030026
 int layout com_facebook_usersettingsfragment 0x7f030027
-int layout layout_story 0x7f030028
-int layout support_simple_spinner_dropdown_item 0x7f030029
+int layout layout_homepage 0x7f030028
+int layout layout_story 0x7f030029
+int layout support_simple_spinner_dropdown_item 0x7f03002a
 int menu main 0x7f0c0000
 int string abc_action_bar_home_description 0x7f070035
 int string abc_action_bar_up_description 0x7f070036

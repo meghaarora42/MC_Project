@@ -144,7 +144,7 @@ public class LoginFragment extends Fragment {
 				return;
 			FBOnce=true;
 			
-			Intent i=new Intent("android.action.STORY");
+			Intent i=new Intent("android.action.HOMEPAGE");
 			i.putExtra("email",useremail);
 			i.putExtra("name",username);
 			startActivity(i);

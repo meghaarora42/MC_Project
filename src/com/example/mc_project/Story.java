@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -48,8 +49,9 @@ public class Story extends Activity
 				Bundle extras = getIntent().getExtras();
 				String useremail = extras.getString("email");
 				String username = extras.getString("name");
-				Log.d("email",useremail);
-				String address=getAddress(lat, lng);
+				Double lat =extras.getDouble("Latitude");
+				Double lng =extras.getDouble("Longitude");
+				String address = extras.getString("Address");
 				ParseObject testObject = new ParseObject("user");
 				testObject.put("Email",useremail);	
 				testObject.put("Name",username);
@@ -58,75 +60,12 @@ public class Story extends Activity
 				testObject.put("Longitude",lng);
 				testObject.put("Address",address);
 				testObject.saveInBackground();
-				
+				Intent i=new Intent("android.action.HOMEPAGE");
+				startActivity(i);
 			}
 		});
 
-		 	manager = (LocationManager) this.getSystemService( Context.LOCATION_SERVICE );
-	        criteria=new Criteria();
-			criteria.setAccuracy(Criteria.ACCURACY_FINE);
-			criteria.setAltitudeRequired(false);
-			criteria.setBearingRequired(false);
-			criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
-			criteria.setVerticalAccuracy(Criteria.NO_REQUIREMENT);
-//			Location lastKnownLocationGPS = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-			startLocationFetching();
 	}
-	public String getAddress(Double latitude,Double longi)
-	{
-		Geocoder geocoder;
-		List<Address> addresses;
-		geocoder = new Geocoder(this, Locale.getDefault());
-		try
-		{
-		addresses = geocoder.getFromLocation(latitude, longi, 1);
-		String address = addresses.get(0).getAddressLine(0);
-		String city = addresses.get(0).getAddressLine(1);
-		String country = addresses.get(0).getAddressLine(2);
-		Log.d("location",(address+","+city+","+country));
-		return(address+","+city+","+country);
-//		return(address);
-		}
-		catch(Exception e)
-		{
-			return("");	
-		}
-	}
-	 private void startLocationFetching() 
-	 {
-			// TODO Auto-generated method stub
-			new Handler().postDelayed(new Runnable() 
-			{
-				
-				@Override
-				public void run() 
-				{
-					// TODO Auto-generated method stub
-					manager.requestSingleUpdate( criteria, new LocationListener() 
-					{
-						
-						@Override
-						public void onStatusChanged(String provider, int status, Bundle extras) {}
-						
-						@Override
-						public void onProviderEnabled(String provider) {}
-						
-						@Override
-						public void onProviderDisabled(String provider) {}
-						
-						@Override
-						public void onLocationChanged(Location location) 
-						{
-							lat=location.getLatitude();
-							String lt=lat.toString();
-//							Log.d("lat",lt);
-							lng=location.getLongitude();
-							String lg=lng.toString();
-//							Log.d("long",lg);
-						}
-					}, null);
-				}
-			}, 300);
 
-	 }
+
 }
