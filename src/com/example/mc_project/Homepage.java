@@ -43,7 +43,7 @@ public class Homepage extends Activity
 		setContentView(R.layout.layout_homepage);
 		Parse.initialize(this, "cIlG71ZlahKyRJv8kaJ0L2y6hDbdvixZyimny8tH", "QhqzYsrDG8GwvzTqvX2LcV6ZgCAhhy2pPW4Corg7");
 		
-		comment=(TextView)findViewById(R.id.View1);
+		comment=(TextView)findViewById(R.id.comment);
 		newstory=(Button)findViewById(R.id.newstorybutton);
 	 	manager = (LocationManager) this.getSystemService( Context.LOCATION_SERVICE );
         criteria=new Criteria();
