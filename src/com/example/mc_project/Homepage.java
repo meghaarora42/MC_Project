@@ -29,12 +29,13 @@ import android.widget.TextView;
 
 public class Homepage extends Activity
 {
-	String text;
+	String text,address,useremail,username;
 	TextView comment;
 	Button newstory;
 	LocationManager manager;
 	Criteria criteria;
 	Double lat,lng;
+	static int visit=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -54,6 +55,14 @@ public class Homepage extends Activity
 		criteria.setVerticalAccuracy(Criteria.NO_REQUIREMENT);
 //		Location lastKnownLocationGPS = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		startLocationFetching();
+		if(visit==0)
+		{
+		Bundle extras = getIntent().getExtras();
+		useremail = extras.getString("email");
+		username = extras.getString("name");
+		visit++;
+		}
+		displaystories();
 		newstory.setOnClickListener(new View.OnClickListener() 
 		{
 			
@@ -61,10 +70,7 @@ public class Homepage extends Activity
 			public void onClick(View arg0) 
 			{
 				// TODO Auto-generated method stub
-				Bundle extras = getIntent().getExtras();
-				String useremail = extras.getString("email");
-				String username = extras.getString("name");
-				String address=getAddress(lat, lng);
+				
 				Intent i=new Intent("android.action.STORY");
 				i.putExtra("email",useremail);
 				i.putExtra("name",username);
@@ -72,29 +78,10 @@ public class Homepage extends Activity
 				i.putExtra("Longitude",lng);
 				i.putExtra("Address",address);
 				startActivity(i);
-				
+				finish();
 			}
 		});
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("user");
-//		query.whereEqualTo("latitude", "dstemkoski@example.com");
-		query.whereEqualTo("Name","Danish Goel");
-		query.findInBackground(new FindCallback<ParseObject>() 
-		{
-		    public void done(List<ParseObject> scoreList, ParseException e) 
-		    {
-		        if (e == null) 
-		        {
-		            for (ParseObject totem :scoreList) 
-		            {
-		                comment.append(totem.getString("Text"));
-		                comment.append("\n");
-		            } 
-		        } else 
-		        {
-		            Log.d("score", "Error: " + e.getMessage());
-		        }
-		    }
-		});
+		
 //		query.getFirstInBackground(new GetCallback<ParseObject>() 
 //		{
 //		  public void done(ParseObject object, ParseException e) 
@@ -103,6 +90,39 @@ public class Homepage extends Activity
 //			  comment.append(text);
 //		  }
 //		});
+	}
+	private void displaystories()
+	{
+		new Handler().postDelayed(new Runnable() 
+		{
+			
+			@Override
+			public void run() 
+			{
+				ParseQuery<ParseObject> query = ParseQuery.getQuery("user");
+//				query.whereEqualTo("latitude", "dstemkoski@example.com");
+//				Log.d("before",address);
+				Log.d("loc",address);
+				query.whereEqualTo("Address",address);
+				query.findInBackground(new FindCallback<ParseObject>() 
+				{
+				    public void done(List<ParseObject> scoreList, ParseException e) 
+				    {
+				        if (e == null) 
+				        {
+				            for (ParseObject totem :scoreList) 
+				            {
+				                comment.append(totem.getString("Text"));
+				                comment.append("\n");
+				            } 
+				        } else 
+				        {
+				            Log.d("score", "Error: " + e.getMessage());
+				        }
+				    }
+				});
+			}
+		}, 2000);
 	}
 	 private void startLocationFetching() 
 	 {
@@ -134,6 +154,8 @@ public class Homepage extends Activity
 //							Log.d("lat",lt);
 							lng=location.getLongitude();
 							String lg=lng.toString();
+							address=getAddress(lat, lng);
+							Log.d("da",address);
 //							Log.d("long",lg);
 						}
 					}, null);
@@ -153,7 +175,7 @@ public class Homepage extends Activity
 			String address = addresses.get(0).getAddressLine(0);
 			String city = addresses.get(0).getAddressLine(1);
 			String country = addresses.get(0).getAddressLine(2);
-			Log.d("location",(address+","+city+","+country));
+//			Log.d("location",(address+","+city+","+country));
 			return(address+","+city+","+country);
 //			return(address);
 			}

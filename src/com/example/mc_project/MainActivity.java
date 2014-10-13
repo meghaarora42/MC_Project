@@ -65,6 +65,6 @@ public class MainActivity extends FragmentActivity
 //		}
 		Intent i=new Intent("android.action.LOGIN");
 		startActivity(i);
-//		finish();
+		finish();
 	}
 }
